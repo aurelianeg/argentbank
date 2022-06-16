@@ -1,6 +1,6 @@
 @import '../../utils/style/colors.css';
 
-.dashboard_wrapper {
+.profile_wrapper {
    flex: 1;
    box-sizing: border-box;
    padding: 2rem;
@@ -13,6 +13,26 @@
 }
 
 .welcome_text {
+   margin: 0;
+}
+
+.input_name_wrapper {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   margin-top: 0.5rem;
+   margin-bottom: 1.5rem;
+}
+
+.input_name {
+   width: 200px;
+   height: 1.7rem;
+   margin: 0 10px 0 10px;
+   text-indent: 5px;
+   font-size: 18px;
+}
+
+.name_text {
    margin-top: 0;
 }
 
@@ -21,5 +41,8 @@
    background-color: var(--primary-color);
    color: white;
    font-weight: bold;
+   width: 90px;
    padding: 10px;
+   margin: 0 10px 0 10px;
+   cursor: pointer;
 }

@@ -19,19 +19,19 @@
    size: 5rem;
 }
 
-.input_wrapper {
+.input_login_wrapper {
    display: flex;
    flex-direction: column;
    text-align: left;
    margin-bottom: 1rem;
 }
 
-.input_wrapper input {
-   padding: 5px;
+.input_login_wrapper input {
+   padding: 3px;
    font-size: 1.2rem;
 }
 
-.input_wrapper label {
+.input_login_wrapper label {
    font-weight: bold;
 }
 
@@ -44,6 +44,7 @@
 }
 
 .login_button {
+   width: 100%;
    display: block;
    padding: 8px;
    font-size: 1.1rem;
@@ -52,4 +53,7 @@
    border-color: var(--primary-color);
    background-color: var(--primary-color);
    color: white;
+   cursor: pointer;
+   text-decoration: underline;
+   text-decoration-color: white;
 }

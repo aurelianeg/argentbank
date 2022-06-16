@@ -2,9 +2,12 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
 
+   html, input {
+      font-family: Avenir, Helvetica, Arial, sans-serif;
+   }
+
    html {
       min-height: 100%;
-      font-family: Avenir, Helvetica, Arial, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-align: center;
