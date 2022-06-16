@@ -1,0 +1,25 @@
+@import '../../utils/style/colors.css';
+
+.dashboard_wrapper {
+   flex: 1;
+   box-sizing: border-box;
+   padding: 2rem;
+   background-color: var(--background-blue-color);
+}
+
+.welcome_wrapper {
+   color: white;
+   margin-bottom: 2rem;
+}
+
+.welcome_text {
+   margin-top: 0;
+}
+
+.edit_button {
+   border-color: var(--primary-color);
+   background-color: var(--primary-color);
+   color: white;
+   font-weight: bold;
+   padding: 10px;
+}

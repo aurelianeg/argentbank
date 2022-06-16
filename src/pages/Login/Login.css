@@ -1,0 +1,55 @@
+@import '../../utils/style/colors.css';
+
+.login_wrapper {
+   flex: 1;
+   box-sizing: border-box;
+   padding: 3rem;
+   background-color: var(--background-blue-color);
+}
+
+.login_content {
+   box-sizing: border-box;
+   background-color: white;
+   width: 300px;
+   margin: 0 auto;
+   padding: 2rem;
+}
+
+.login_icon {
+   size: 5rem;
+}
+
+.input_wrapper {
+   display: flex;
+   flex-direction: column;
+   text-align: left;
+   margin-bottom: 1rem;
+}
+
+.input_wrapper input {
+   padding: 5px;
+   font-size: 1.2rem;
+}
+
+.input_wrapper label {
+   font-weight: bold;
+}
+
+.remember_wrapper {
+   display: flex;
+}
+
+.remember_wrapper label {
+   margin-left: 0.25rem;
+}
+
+.login_button {
+   display: block;
+   padding: 8px;
+   font-size: 1.1rem;
+   font-weight: bold;
+   margin-top: 1rem;
+   border-color: var(--primary-color);
+   background-color: var(--primary-color);
+   color: white;
+}
