@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import Account from '../../components/Account/Account';
+import NameEditingButton from '../../scripts/NameEditingButton';
 import './Profile.css';
 
 function Profile(props) {
-   let [isNameEdited, setNameEdited] = useState(false);
-
-   const toggleEditName = () => {
-      setNameEdited(!isNameEdited);
-   };
+   const isNameEdited = useSelector((state) => state.isNameEdited);
 
    return (
       <main className="profile_wrapper">
@@ -20,22 +18,21 @@ function Profile(props) {
                         className="input_name"
                         type="text"
                         id="firstname"
-                        value={props.firstName}
+                        defaultValue={props.firstName}
                      />
                      <input
                         className="input_name"
                         type="text"
                         id="lastname"
-                        value={props.lastName}
+                        defaultValue={props.lastName}
                      />
                   </div>
                   <div className="button_wrapper">
-                     <button onClick={toggleEditName} className="edit_button">
-                        Save
-                     </button>
-                     <button onClick={toggleEditName} className="edit_button">
-                        Cancel
-                     </button>
+                     <NameEditingButton className="edit_button" title="Save" />
+                     <NameEditingButton
+                        className="edit_button"
+                        title="Cancel"
+                     />
                   </div>
                </div>
             ) : (
@@ -43,9 +40,10 @@ function Profile(props) {
                   <h1 className="name_text">
                      {props.firstName + ' ' + props.lastName + '!'}
                   </h1>
-                  <button onClick={toggleEditName} className="edit_button">
-                     Edit Name
-                  </button>
+                  <NameEditingButton
+                     className="edit_button"
+                     title="Edit Name"
+                  />
                </div>
             )}
          </div>
