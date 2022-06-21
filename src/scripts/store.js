@@ -21,6 +21,12 @@ export const changeLastNameAction = (value) => ({
 
 export const nameEditingAction = () => ({ type: "nameEditing" });
 
+/**
+ * Reducer function (Redux)
+ * @param { Array } state - Global state
+ * @param { Object } action - Action
+ * @returns { Array } Updated global state
+ */
 function reducer(state = initialState, action) {
    switch (action.type) {
       case "connect": {

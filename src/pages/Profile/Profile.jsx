@@ -1,10 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Account from '../../components/Account/Account';
-import ChangeNameInput from '../../scripts/ChangeNameInput';
-import NameEditingButton from '../../scripts/NameEditingButton';
+import ChangeNameInput from '../../components/ChangeNameInput/ChangeNameInput';
+import NameEditingButton from '../../components/NameEditingButton/NameEditingButton';
 import './Profile.css';
 
+/**
+ * React component to create the profile page with user information and accounts
+ * @returns { React.ReactElement } User profile page
+ */
 function Profile() {
    const firstName = useSelector((state) => state.firstName);
    const lastName = useSelector((state) => state.lastName);
@@ -17,23 +21,12 @@ function Profile() {
             {isNameEdited ? (
                <div>
                   <div className="input_name_wrapper">
-                     <ChangeNameInput
-                        className="input_name"
-                        id="firstname"
-                        value={firstName}
-                     />
-                     <ChangeNameInput
-                        className="input_name"
-                        id="lastname"
-                        value={lastName}
-                     />
+                     <ChangeNameInput id="firstname" value={firstName} />
+                     <ChangeNameInput id="lastname" value={lastName} />
                   </div>
                   <div className="button_wrapper">
-                     <NameEditingButton className="edit_button" title="Save" />
-                     <NameEditingButton
-                        className="edit_button"
-                        title="Cancel"
-                     />
+                     <NameEditingButton title="Save" />
+                     <NameEditingButton title="Cancel" />
                   </div>
                </div>
             ) : (
@@ -41,10 +34,7 @@ function Profile() {
                   <h1 className="name_text">
                      {firstName + ' ' + lastName + '!'}
                   </h1>
-                  <NameEditingButton
-                     className="edit_button"
-                     title="Edit Name"
-                  />
+                  <NameEditingButton title="Edit Name" />
                </div>
             )}
          </div>

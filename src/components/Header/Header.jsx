@@ -4,6 +4,10 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/logo/argentBankLogo.png';
 import './Header.css';
 
+/**
+ * React component to create a header
+ * @returns { React.ReactElement } Header component
+ */
 function Header() {
    const firstName = useSelector((state) => state.firstName);
    const isConnected = useSelector((state) => state.isConnected);

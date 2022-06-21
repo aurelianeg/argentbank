@@ -1,6 +1,10 @@
 import React from 'react';
 import './Footer.css';
 
+/**
+ * React component to create a footer
+ * @returns { React.ReactElement } Footer component
+ */
 function Footer() {
    return (
       <footer className="footer">

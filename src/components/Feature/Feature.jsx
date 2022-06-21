@@ -2,6 +2,11 @@ import React from 'react';
 import propTypes from 'prop-types';
 import './Feature.css';
 
+/**
+ * React component to create a feature
+ * @param { {icon: SVGElement, iconType: String, title: String, description: String} } props - icon: SVG element, iconType: icon description, title: feature title, description: text
+ * @returns { React.ReactElement } Feature component
+ */
 function Feature(props) {
    return (
       <div className="feature_wrapper">

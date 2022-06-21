@@ -8,6 +8,10 @@ import Profile from '../pages/Profile/Profile';
 import Error from '../pages/Error/Error';
 import Footer from './Footer/Footer';
 
+/**
+ * React component for App with React Router
+ * @returns { React.ReactElement } App component
+ */
 function App() {
    return (
       <div>

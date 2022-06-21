@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
+/**
+ * React component to create the login page when the user is logged out
+ * @returns { React.ReactElement } Login page
+ */
 function Login() {
    return (
       <main className="login_wrapper">
@@ -10,16 +14,16 @@ function Login() {
             <h1>Sign In</h1>
             <form>
                <div className="input_login_wrapper">
-                  <label for="username">Username</label>
+                  <label htmlFor="username">Username</label>
                   <input type="text" id="username" />
                </div>
                <div className="input_login_wrapper">
-                  <label for="password">Password</label>
-                  <input type="password" id="password" />
+                  <label htmlFor="password">Password</label>
+                  <input type="password" id="password" autoComplete="off" />
                </div>
                <div className="remember_wrapper">
                   <input type="checkbox" id="remember" />
-                  <label for="remember">Remember me</label>
+                  <label htmlFor="remember">Remember me</label>
                </div>
                <Link to="/profile">
                   <button className="login_button">Sign In</button>

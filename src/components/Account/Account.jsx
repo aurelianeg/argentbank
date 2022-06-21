@@ -2,6 +2,11 @@ import React from 'react';
 import propTypes from 'prop-types';
 import './Account.css';
 
+/**
+ * React component to create an account with needed information
+ * @param { {title: String, amount: String, description: String} } props - title: account title, amount: account balance, description: account information
+ * @returns { React.ReactElement } Account component
+ */
 function Account(props) {
    return (
       <section className="account_wrapper">
