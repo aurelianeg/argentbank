@@ -1,10 +1,13 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import Account from '../../components/Account/Account';
+import ChangeNameInput from '../../scripts/ChangeNameInput';
 import NameEditingButton from '../../scripts/NameEditingButton';
 import './Profile.css';
 
-function Profile(props) {
+function Profile() {
+   const firstName = useSelector((state) => state.firstName);
+   const lastName = useSelector((state) => state.lastName);
    const isNameEdited = useSelector((state) => state.isNameEdited);
 
    return (
@@ -14,17 +17,15 @@ function Profile(props) {
             {isNameEdited ? (
                <div>
                   <div className="input_name_wrapper">
-                     <input
+                     <ChangeNameInput
                         className="input_name"
-                        type="text"
                         id="firstname"
-                        defaultValue={props.firstName}
+                        value={firstName}
                      />
-                     <input
+                     <ChangeNameInput
                         className="input_name"
-                        type="text"
                         id="lastname"
-                        defaultValue={props.lastName}
+                        value={lastName}
                      />
                   </div>
                   <div className="button_wrapper">
@@ -38,7 +39,7 @@ function Profile(props) {
             ) : (
                <div>
                   <h1 className="name_text">
-                     {props.firstName + ' ' + props.lastName + '!'}
+                     {firstName + ' ' + lastName + '!'}
                   </h1>
                   <NameEditingButton
                      className="edit_button"

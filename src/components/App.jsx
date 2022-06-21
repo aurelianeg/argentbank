@@ -13,14 +13,11 @@ function App() {
       <div>
          <Router>
             <GlobalStyle />
-            <Header firstName="Tony" isConnected={false} />
+            <Header />
             <Routes>
                <Route exact path="/" element={<Home />}></Route>
                <Route path="/login" element={<Login />}></Route>
-               <Route
-                  path="/profile"
-                  element={<Profile firstName="Tony" lastName="Jarvis" />}
-               ></Route>
+               <Route path="/profile" element={<Profile />}></Route>
                <Route path="*" element={<Error />}></Route>
             </Routes>
             <Footer />

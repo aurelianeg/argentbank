@@ -1,15 +1,23 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 const initialState = {
-   firstName: null,
-   lastName: null,
-   connected: false,
+   firstName: '',
+   lastName: '',
+   isConnected: false,
    isNameEdited: false,
 };
 
 export const connectAction = () => ({ type: "connect" });
 
-export const changeNamesAction = () => ({ type: "changeNames" });
+export const changeFirstNameAction = (value) => ({
+   type: "changeFirstName",
+   payload: value
+});
+
+export const changeLastNameAction = (value) => ({
+   type: "changeLastName",
+   payload: value
+});
 
 export const nameEditingAction = () => ({ type: "nameEditing" });
 
@@ -18,11 +26,20 @@ function reducer(state = initialState, action) {
       case "connect": {
          return {
             ...state,
-            connected: !state.connected
+            isConnected: !state.isConnected
          }
       }
-      case "changeNames": {
-         return state
+      case "changeFirstName": {
+         return {
+            ...state,
+            firstName: action.payload
+         }
+      }
+      case "changeLastName": {
+         return {
+            ...state,
+            lastName: action.payload
+         }
       }
       case "nameEditing": {
          return {
