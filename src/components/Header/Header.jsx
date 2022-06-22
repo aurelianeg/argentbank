@@ -25,11 +25,7 @@ function Header() {
                   <i className="fa fa-user-circle"></i>
                   <p className="nav_item_text">{firstName}</p>
                </Link>
-               <LogoutLink className="nav_item" />
-               {/* <Link className="nav_item" to="/">
-                  <i className="fa fa-sign-out"></i>
-                  <p className="nav_item_text">Sign Out</p>
-               </Link> */}
+               <LogoutLink to="/" />
             </nav>
          ) : (
             <nav className="nav">
