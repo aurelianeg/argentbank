@@ -3,11 +3,13 @@ import { configureStore } from "@reduxjs/toolkit";
 const initialState = {
    firstName: '',
    lastName: '',
-   isConnected: false,
+   isLoggedIn: true,
    isNameEdited: false,
 };
 
-export const connectAction = () => ({ type: "connect" });
+export const logInAction = () => ({ type: "logIn" });
+
+export const logOutAction = () => ({ type: "logOut" });
 
 export const changeFirstNameAction = (value) => ({
    type: "changeFirstName",
@@ -29,10 +31,16 @@ export const nameEditingAction = () => ({ type: "nameEditing" });
  */
 function reducer(state = initialState, action) {
    switch (action.type) {
-      case "connect": {
+      case "logIn": {
          return {
             ...state,
-            isConnected: !state.isConnected
+            isLoggedIn: true
+         }
+      }
+      case "logOut": {
+         return {
+            ...state,
+            isLoggedIn: false
          }
       }
       case "changeFirstName": {
