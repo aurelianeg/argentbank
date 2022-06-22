@@ -27,3 +27,26 @@
 .name_text {
    margin-top: 0;
 }
+
+.redirection_text {
+   color: white;
+   margin: 2rem;
+}
+
+.redirection_link {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: center;
+   color: var(--primary-color);
+   text-decoration: none;
+}
+
+.signin_text {
+   margin: 0.8rem;
+   text-decoration: underline;
+}
+
+.redirection_link:hover {
+   color: white;
+}

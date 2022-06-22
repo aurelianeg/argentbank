@@ -1,11 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+// --------------- STATE INITIALIZATION ---------------
+
 const initialState = {
    firstName: '',
    lastName: '',
-   isLoggedIn: true,
+   isLoggedIn: false,
    isNameEdited: false,
 };
+
+
+// --------------- ACTIONS ---------------
 
 export const logInAction = () => ({ type: "logIn" });
 
@@ -23,6 +28,9 @@ export const changeLastNameAction = (value) => ({
 
 export const nameEditingAction = () => ({ type: "nameEditing" });
 
+
+// --------------- REDUCER ---------------
+
 /**
  * Reducer function (Redux)
  * @param { Array } state - Global state
@@ -35,13 +43,11 @@ function reducer(state = initialState, action) {
          return {
             ...state,
             isLoggedIn: true
+            // !!!!!! Add firstName and lastName updates
          }
       }
       case "logOut": {
-         return {
-            ...state,
-            isLoggedIn: false
-         }
+         return initialState
       }
       case "changeFirstName": {
          return {
@@ -65,5 +71,6 @@ function reducer(state = initialState, action) {
          return state
    }
 }
+
 
 export const store = configureStore({ reducer });
