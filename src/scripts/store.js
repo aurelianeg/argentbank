@@ -6,7 +6,6 @@ const initialState = {
    firstName: '',
    lastName: '',
    isLoggedIn: false,
-   isNameEdited: false,
 };
 
 
@@ -25,8 +24,6 @@ export const changeLastNameAction = (value) => ({
    type: "changeLastName",
    payload: value
 });
-
-export const nameEditingAction = () => ({ type: "nameEditing" });
 
 
 // --------------- REDUCER ---------------
@@ -59,12 +56,6 @@ function reducer(state = initialState, action) {
          return {
             ...state,
             lastName: action.payload
-         }
-      }
-      case "nameEditing": {
-         return {
-            ...state,
-            isNameEdited: !state.isNameEdited
          }
       }
       default:

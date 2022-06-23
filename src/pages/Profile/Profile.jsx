@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import Account from '../../components/Account/Account';
 import ChangeNameInput from '../../components/ChangeNameInput/ChangeNameInput';
-import NameEditingButton from '../../components/NameEditingButton/NameEditingButton';
 import { Link } from 'react-router-dom';
 import './Profile.css';
 
@@ -14,7 +13,12 @@ function Profile() {
    const firstName = useSelector((state) => state.firstName);
    const lastName = useSelector((state) => state.lastName);
    const isLoggedIn = useSelector((state) => state.isLoggedIn);
-   const isNameEdited = useSelector((state) => state.isNameEdited);
+
+   const [isNameEdited, setNameEdited] = useState(false);
+
+   const handleEditName = () => {
+      setNameEdited(!isNameEdited);
+   };
 
    return (
       <main className="profile_wrapper">
@@ -29,8 +33,18 @@ function Profile() {
                            <ChangeNameInput id="lastname" value={lastName} />
                         </div>
                         <div className="button_wrapper">
-                           <NameEditingButton title="Save" />
-                           <NameEditingButton title="Cancel" />
+                           <button
+                              className="edit_name_button"
+                              onClick={handleEditName}
+                           >
+                              Save
+                           </button>
+                           <button
+                              className="edit_name_button"
+                              onClick={handleEditName}
+                           >
+                              Cancel
+                           </button>
                         </div>
                      </div>
                   ) : (
@@ -38,7 +52,12 @@ function Profile() {
                         <h1 className="name_text">
                            {firstName + ' ' + lastName + '!'}
                         </h1>
-                        <NameEditingButton title="Edit Name" />
+                        <button
+                           className="edit_name_button"
+                           onClick={handleEditName}
+                        >
+                           Edit Name
+                        </button>
                      </div>
                   )}
                </div>
