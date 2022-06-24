@@ -1,7 +1,8 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { logOutAction } from '../../scripts/store';
+import { logoutAction } from '../../scripts/store';
 import './LogoutLink.css';
 
 /**
@@ -17,7 +18,7 @@ function LogoutLink(props) {
          className="logout_link"
          to={props.to}
          onClick={() => {
-            dispatch(logOutAction());
+            dispatch(logoutAction());
          }}
       >
          <i className="fa fa-sign-out"></i>
@@ -25,5 +26,9 @@ function LogoutLink(props) {
       </Link>
    );
 }
+
+LogoutLink.propTypes = {
+   to: propTypes.string.isRequired,
+};
 
 export default LogoutLink;

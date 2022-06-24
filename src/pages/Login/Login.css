@@ -48,9 +48,4 @@
    color: red;
    font-size: 16px;
    font-weight: bold;
-   display: block;
-}
-
-.no_error_message {
-   display: none;
 }

@@ -3,27 +3,62 @@ import { configureStore } from "@reduxjs/toolkit";
 // --------------- STATE INITIALIZATION ---------------
 
 const initialState = {
-   firstName: '',
-   lastName: '',
+   auth: {
+      idToken: '',
+      email: '',
+      firstName: '',
+      lastName: ''
+   },
    isLoggedIn: false,
+   hasLoginFailed: false,
 };
 
 
 // --------------- ACTIONS ---------------
 
-export const logInAction = () => ({ type: "logIn" });
+export function loginAction() {
+   console.log("LOGIN_ACTION")
+   return {
+      type: "LOGIN_ACTION"
+   }
+}
 
-export const logOutAction = () => ({ type: "logOut" });
+export function loginSuccessAction() {
+   console.log("LOGIN_SUCCESS_ACTION")
+   return {
+      type: "LOGIN_SUCCESS_ACTION"
+   }
+}
 
-export const changeFirstNameAction = (value) => ({
-   type: "changeFirstName",
-   payload: value
-});
+export function loginFailureAction() {
+   console.log("LOGIN_FAILURE_ACTION")
+   return {
+      type: "LOGIN_FAILURE_ACTION"
+   }
+}
 
-export const changeLastNameAction = (value) => ({
-   type: "changeLastName",
-   payload: value
-});
+export function logoutAction() {
+   console.log("LOGOUT_ACTION")
+   return {
+      type: "LOGOUT_ACTION"
+   }
+}
+
+export function changeFirstNameAction (value) {
+   console.log("CHANGE_FIRST_NAME_ACTION")
+   return {
+      type: "CHANGE_FIRST_NAME_ACTION",
+      payload: value
+   }
+}
+
+export function changeLastNameAction(value) {
+   console.log("CHANGE_LAST_NAME_ACTION")
+   return {
+      type: "CHANGE_LAST_NAME_ACTION",
+      payload: value
+   }
+}
 
 
 // --------------- REDUCER ---------------
@@ -36,26 +71,39 @@ export const changeLastNameAction = (value) => ({
  */
 function reducer(state = initialState, action) {
    switch (action.type) {
-      case "logIn": {
+      case "LOGIN_SUCCESS_ACTION": {
          return {
             ...state,
-            isLoggedIn: true
-            // !!!!!! Add firstName and lastName updates
+            isLoggedIn: true,
+            hasLoginFailed: false
+            // !!!!!! Add idToken, email, firstName and lastName updates
          }
       }
-      case "logOut": {
+      case "LOGIN_FAILURE_ACTION": {
+         return {
+            ...state,
+            hasLoginFailed: true
+         }
+      }
+      case "LOGOUT_ACTION": {
          return initialState
       }
-      case "changeFirstName": {
+      case "CHANGE_FIRST_NAME_ACTION": {
          return {
             ...state,
-            firstName: action.payload
+            auth: {
+               ...state.auth,
+               firstName: action.payload
+            }
          }
       }
-      case "changeLastName": {
+      case "CHANGE_LAST_NAME_ACTION": {
          return {
             ...state,
-            lastName: action.payload
+            auth: {
+               ...state.auth,
+               lastName: action.payload
+            }
          }
       }
       default:

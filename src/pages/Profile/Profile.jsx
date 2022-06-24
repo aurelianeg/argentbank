@@ -10,8 +10,8 @@ import './Profile.css';
  * @returns { React.ReactElement } User profile page
  */
 function Profile() {
-   const firstName = useSelector((state) => state.firstName);
-   const lastName = useSelector((state) => state.lastName);
+   const firstName = useSelector((state) => state.auth.firstName);
+   const lastName = useSelector((state) => state.auth.lastName);
    const isLoggedIn = useSelector((state) => state.isLoggedIn);
 
    const [isNameEdited, setNameEdited] = useState(false);
