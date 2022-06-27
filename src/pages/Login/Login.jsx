@@ -1,7 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Navigate } from 'react-router-dom';
-import LoginLink from '../../components/LoginLink/LoginLink';
+import LoginButton from '../../components/LoginButton/LoginButton';
 import './Login.css';
 
 /**
@@ -9,7 +8,6 @@ import './Login.css';
  * @returns { React.ReactElement } Login page
  */
 function Login() {
-   const isLoggedIn = useSelector((state) => state.isLoggedIn);
    const hasLoginFailed = useSelector((state) => state.hasLoginFailed);
 
    return (
@@ -19,8 +17,8 @@ function Login() {
             <h1>Sign In</h1>
             <form>
                <div className="input_login_wrapper">
-                  <label htmlFor="username">Username</label>
-                  <input type="text" id="username" />
+                  <label htmlFor="email">E-mail</label>
+                  <input type="text" id="email" />
                </div>
                <div className="input_login_wrapper">
                   <label htmlFor="password">Password</label>
@@ -37,11 +35,7 @@ function Login() {
                ) : (
                   ''
                )}
-               {isLoggedIn ? (
-                  <Navigate to="/profile" />
-               ) : (
-                  <LoginLink to="/login" />
-               )}
+               <LoginButton />
             </form>
          </section>
       </main>
