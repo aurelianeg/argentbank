@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
+import EditNamesButton from '../../components/EditNamesButton/EditNamesButton';
 import Account from '../../components/Account/Account';
-import ChangeNameInput from '../../components/ChangeNameInput/ChangeNameInput';
 import { Link } from 'react-router-dom';
 import './Profile.css';
 
@@ -13,12 +13,7 @@ function Profile() {
    const firstName = useSelector((state) => state.auth.firstName);
    const lastName = useSelector((state) => state.auth.lastName);
    const isLoggedIn = useSelector((state) => state.isLoggedIn);
-
-   const [isNameEdited, setNameEdited] = useState(false);
-
-   const handleEditName = () => {
-      setNameEdited(!isNameEdited);
-   };
+   const isNameEdited = useSelector((state) => state.isNameEdited);
 
    return (
       <main className="profile_wrapper">
@@ -29,22 +24,22 @@ function Profile() {
                   {isNameEdited ? (
                      <div>
                         <div className="input_name_wrapper">
-                           <ChangeNameInput id="firstname" value={firstName} />
-                           <ChangeNameInput id="lastname" value={lastName} />
+                           <input
+                              className="input_name"
+                              type="text"
+                              id="firstname"
+                              defaultValue={firstName}
+                           />
+                           <input
+                              className="input_name"
+                              type="text"
+                              id="lastname"
+                              defaultValue={lastName}
+                           />
                         </div>
                         <div className="button_wrapper">
-                           <button
-                              className="edit_name_button"
-                              onClick={handleEditName}
-                           >
-                              Save
-                           </button>
-                           <button
-                              className="edit_name_button"
-                              onClick={handleEditName}
-                           >
-                              Cancel
-                           </button>
+                           <EditNamesButton title="Save" />
+                           <EditNamesButton title="Cancel" />
                         </div>
                      </div>
                   ) : (
@@ -52,12 +47,7 @@ function Profile() {
                         <h1 className="name_text">
                            {firstName + ' ' + lastName + '!'}
                         </h1>
-                        <button
-                           className="edit_name_button"
-                           onClick={handleEditName}
-                        >
-                           Edit Name
-                        </button>
+                        <EditNamesButton title="Edit Name" />
                      </div>
                   )}
                </div>
