@@ -1,4 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+
 
 // --------------- STATE INITIALIZATION ---------------
 
@@ -111,5 +114,22 @@ function reducer(state = initialState, action) {
    }
 }
 
+// To stay logged in when page refresh
+const persistConfig = {
+  key: 'root',
+  storage,
+}
 
-export const store = configureStore({ reducer });
+const persistedReducer = persistReducer(persistConfig, reducer)
+
+export const store = configureStore({
+   reducer: persistedReducer, 
+   middleware: (getDefaultMiddleware) =>
+   getDefaultMiddleware({
+      serializableCheck: {
+         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+   }),
+})
+
+export const persistor = persistStore(store)
